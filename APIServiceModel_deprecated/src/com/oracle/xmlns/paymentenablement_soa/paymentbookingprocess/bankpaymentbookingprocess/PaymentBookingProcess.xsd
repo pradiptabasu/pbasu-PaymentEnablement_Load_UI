@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.demo.oracle.gringottBank.org" targetNamespace="http://www.demo.oracle.gringottBank.org" elementFormDefault="qualified">
+  <xsd:element name="paymentBookingRequest">
+    <xsd:annotation>
+      <xsd:documentation>A sample element</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="paymentID" type="xsd:integer"/>
+        <xsd:element name="customerID" type="xsd:string"/>
+        <xsd:element name="loanAmount" type="xsd:float"/>
+        <xsd:element name="customerAsset" type="xsd:float"/>
+        <xsd:element name="finTechID" type="xsd:string"/>
+        <xsd:element name="PaymentCategory" type="xsd:string"/>
+        <xsd:element name="SalesChannel" type="xsd:string"/>
+        <xsd:element name="TechnicalChannel" type="xsd:string"/>
+        <xsd:element name="Region" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="paymentBookingResponse">
+    <xsd:annotation>
+      <xsd:documentation>A sample element</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="paymentID" type="xsd:int"/>
+        <xsd:element name="customerID" type="xsd:string"/>
+        <xsd:element name="finTechID" type="xsd:string"/>
+        <xsd:element name="paymentBookingStatus" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

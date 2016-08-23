@@ -1,0 +1,6 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <system systemId="http://oa8104.us.oracle.com:7003/soa-infra/services/default/PaymentsCustomerValidation/paymentscustomervalidationbpelprocess_client_ep?wsdl#%7Bhttp%3A%2F%2Fxmlns.oracle.com%2FPayments_API_Enablement%2FPaymentsCustomerValidation%2FPaymentsCustomerValidationBPELProcess%7Dpaymentscustomervalidationbpelprocess_client_ep"
+          uri="../com/oracle/xmlns/payments_api_enablement/paymentscustomervalidation/paymentscustomervalidationbpelprocess/paymentscustomervalidationbpelprocess_client_ep.wsdl"/>
+  <system systemId="http://oa8102.us.oracle.com:8001/PaymentProcessingAPI/1?wsdl#%7Bhttp%3A%2F%2Fxmlns.oracle.com%2FPaymentEnablement_SOA%2FPaymentBookingProcess%2FBankPaymentBookingProcess%7Dbankpaymentbookingprocess_client_ep"
+          uri="../com/oracle/xmlns/paymentenablement_soa/paymentbookingprocess/bankpaymentbookingprocess/bankpaymentbookingprocess_client_ep.wsdl"/>
+</catalog>

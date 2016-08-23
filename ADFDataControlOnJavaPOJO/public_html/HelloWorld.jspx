@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="HelloWorld.jspx" id="d1" binding="#{backingBeanScope.backing_HelloWorld.d1}">
+            <af:messages id="m1" binding="#{backingBeanScope.backing_HelloWorld.m1}"/>
+            <af:form id="f1" binding="#{backingBeanScope.backing_HelloWorld.f1}">
+                <af:decorativeBox id="db1" binding="#{backingBeanScope.backing_HelloWorld.db1}">
+                    <f:facet name="center">
+                        <af:panelGroupLayout id="pgl2" binding="#{backingBeanScope.backing_HelloWorld.pgl2}"
+                                             halign="center">
+                            <af:inputText label="Visitor's Name" id="it1"
+                                          binding="#{backingBeanScope.backing_HelloWorld.it1}"/>
+                            <af:button text="Go Hello" id="b1" binding="#{backingBeanScope.backing_HelloWorld.b1}"
+                                       action="#{backingBeanScope.backing_HelloWorld.b1_action}"/>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    <f:facet name="top">
+                        <af:panelGroupLayout id="pgl1" binding="#{backingBeanScope.backing_HelloWorld.pgl1}"
+                                             halign="center">
+                            <af:outputText id="ot1"
+                                           binding="#{backingBeanScope.backing_HelloWorld.ot1}"
+                                           inlineStyle="color:Red; font-size:xx-large; background-color:Yellow;"
+                                           clientComponent="true" partialTriggers="b1"/>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                </af:decorativeBox>
+                <af:panelGroupLayout id="pgl3" binding="#{backingBeanScope.backing_HelloWorld.pgl3}">
+                    <af:table value="#{bindings.empManager.collectionModel}" var="row"
+                              rows="#{bindings.empManager.rangeSize}"
+                              emptyText="#{bindings.empManager.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0" fetchSize="#{bindings.empManager.rangeSize}" id="t1"
+                              binding="#{backingBeanScope.backing_HelloWorld.t1}">
+                        <af:column headerText="#{bindings.empManager.hints.field1.label}" id="c1">
+                            <af:outputText value="#{row.field1}" shortDesc="#{bindings.empManager.hints.field1.tooltip}"
+                                           id="ot2"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.empManager.hints.field2.label}" id="c2">
+                            <af:outputText value="#{row.field2}" shortDesc="#{bindings.empManager.hints.field2.tooltip}"
+                                           id="ot3"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.empManager.hints.field3.label}" id="c3">
+                            <af:outputText value="#{row.field3}" shortDesc="#{bindings.empManager.hints.field3.tooltip}"
+                                           id="ot4">
+                                <af:convertDateTime pattern="#{bindings.empManager.hints.field3.format}"/>
+                            </af:outputText>
+                        </af:column>
+                    </af:table>
+                </af:panelGroupLayout>
+            </af:form>
+            <af:form id="f2" binding="#{backingBeanScope.backing_HelloWorld.f2}">
+                <af:panelGroupLayout id="pgl4" binding="#{backingBeanScope.backing_HelloWorld.pgl4}">
+                    <af:table value="#{bindings.details.collectionModel}" var="row" rows="#{bindings.details.rangeSize}"
+                              emptyText="#{bindings.details.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0" fetchSize="#{bindings.details.rangeSize}" id="t2"
+                              binding="#{backingBeanScope.backing_HelloWorld.t2}">
+                        <af:column headerText="#{bindings.details.hints.field1.label}" id="c4">
+                            <af:inputText value="#{row.bindings.field1.inputValue}"
+                                          label="#{bindings.details.hints.field1.label}"
+                                          required="#{bindings.details.hints.field1.mandatory}"
+                                          columns="#{bindings.details.hints.field1.displayWidth}"
+                                          maximumLength="#{bindings.details.hints.field1.precision}"
+                                          shortDesc="#{bindings.details.hints.field1.tooltip}" id="it2">
+                                <f:validator binding="#{row.bindings.field1.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.details.hints.field2.label}" id="c5">
+                            <af:inputText value="#{row.bindings.field2.inputValue}"
+                                          label="#{bindings.details.hints.field2.label}"
+                                          required="#{bindings.details.hints.field2.mandatory}"
+                                          columns="#{bindings.details.hints.field2.displayWidth}"
+                                          maximumLength="#{bindings.details.hints.field2.precision}"
+                                          shortDesc="#{bindings.details.hints.field2.tooltip}" id="it3">
+                                <f:validator binding="#{row.bindings.field2.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.details.hints.field3.label}" id="c6">
+                            <af:inputDate value="#{row.bindings.field3.inputValue}"
+                                          label="#{bindings.details.hints.field3.label}"
+                                          required="#{bindings.details.hints.field3.mandatory}"
+                                          columns="#{bindings.details.hints.field3.displayWidth}"
+                                          shortDesc="#{bindings.details.hints.field3.tooltip}" id="id1">
+                                <f:validator binding="#{row.bindings.field3.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.details.hints.field3.format}"/>
+                            </af:inputDate>
+                        </af:column>
+                    </af:table>
+                </af:panelGroupLayout>
+            </af:form>
+        </af:document>
+    </f:view>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_HelloWorld-->
+</jsp:root>

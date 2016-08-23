@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="HelloWorldPageDef"
+                Package="adfdatacontrolonjavapojo.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="QuartzJobDetailsArray" id="QuartzJobDetailsArrayIterator"/>
+    <accessorIterator MasterBinding="QuartzJobDetailsArrayIterator" Binds="empManager" RangeSize="25"
+                      DataControl="QuartzJobDetailsArray" BeanClass="QuartzJobDetailsDataStructure"
+                      id="empManagerIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="QuartzJobDetailsArray2" id="QuartzJobDetailsArray2Iterator"/>
+    <accessorIterator MasterBinding="QuartzJobDetailsArray2Iterator" Binds="details" RangeSize="25"
+                      DataControl="QuartzJobDetailsArray2" BeanClass="QuartzJobDetailsDataStructure"
+                      id="detailsIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="empManagerIterator" id="empManager">
+      <nodeDefinition DefName="QuartzJobDetailsDataStructure" Name="empManager0">
+        <AttrNames>
+          <Item Value="field1"/>
+          <Item Value="field2"/>
+          <Item Value="field3"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="detailsIterator" id="details">
+      <nodeDefinition DefName="QuartzJobDetailsDataStructure" Name="details0">
+        <AttrNames>
+          <Item Value="field1"/>
+          <Item Value="field2"/>
+          <Item Value="field3"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

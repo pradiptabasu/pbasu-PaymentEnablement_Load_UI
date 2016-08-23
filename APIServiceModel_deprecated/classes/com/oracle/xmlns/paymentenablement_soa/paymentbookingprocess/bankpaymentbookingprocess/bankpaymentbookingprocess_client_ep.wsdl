@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions name="BankPaymentBookingProcess"
+                  targetNamespace="http://xmlns.oracle.com/PaymentEnablement_SOA/PaymentBookingProcess/BankPaymentBookingProcess"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:client="http://xmlns.oracle.com/PaymentEnablement_SOA/PaymentBookingProcess/BankPaymentBookingProcess"
+                  xmlns:ns1="http://www.demo.oracle.gringottBank.org"
+                  xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:documentation><abstractWSDL>
+      http://oa8104.us.oracle.com:7003/soa-infra/services/default/PaymentBookingProcess!1.0/WSDLs/BankPaymentBookingProcess.wsdl
+    </abstractWSDL></wsdl:documentation>
+  <plnk:partnerLinkType name="BankPaymentBookingProcess">
+    <plnk:role name="BankPaymentBookingProcessProvider" portType="client:BankPaymentBookingProcess"/>
+  </plnk:partnerLinkType>
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://www.demo.oracle.gringottBank.org" schemaLocation="PaymentBookingProcess.xsd"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="BankPaymentBookingProcessRequestMessage">
+    <wsdl:part name="payload" element="ns1:paymentBookingRequest"/>
+  </wsdl:message>
+  <wsdl:message name="BankPaymentBookingProcessResponseMessage">
+    <wsdl:part name="payload" element="ns1:paymentBookingResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="BankPaymentBookingProcess">
+    <wsdl:operation name="process">
+      <wsdl:input message="client:BankPaymentBookingProcessRequestMessage"/>
+      <wsdl:output message="client:BankPaymentBookingProcessResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BankPaymentBookingProcessBinding" type="client:BankPaymentBookingProcess">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="process">
+      <soap:operation style="document" soapAction="process"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="bankpaymentbookingprocess_client_ep">
+    <wsdl:port name="BankPaymentBookingProcess_pt" binding="client:BankPaymentBookingProcessBinding">
+      <soap:address location="http://oa8102.us.oracle.com:8001/PaymentProcessingAPI/1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

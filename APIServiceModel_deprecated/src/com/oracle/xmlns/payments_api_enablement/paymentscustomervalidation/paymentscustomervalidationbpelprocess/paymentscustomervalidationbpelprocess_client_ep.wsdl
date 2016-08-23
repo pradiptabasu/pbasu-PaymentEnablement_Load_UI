@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions name="PaymentsCustomerValidationBPELProcess"
+                  targetNamespace="http://xmlns.oracle.com/Payments_API_Enablement/PaymentsCustomerValidation/PaymentsCustomerValidationBPELProcess"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:client="http://xmlns.oracle.com/Payments_API_Enablement/PaymentsCustomerValidation/PaymentsCustomerValidationBPELProcess"
+                  xmlns:ns1="http://www.bank.org/payments" xmlns:ns2="http://schemas.oracle.com/bpel/extension"
+                  xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:documentation><abstractWSDL>
+      http://oa8104.us.oracle.com:7003/soa-infra/services/default/PaymentsCustomerValidation!1.0/WSDLs/PaymentsCustomerValidationBPELProcess.wsdl
+    </abstractWSDL></wsdl:documentation>
+  <plnk:partnerLinkType name="PaymentsCustomerValidationBPELProcess">
+    <plnk:role name="PaymentsCustomerValidationBPELProcessProvider"
+               portType="client:PaymentsCustomerValidationBPELProcess"/>
+  </plnk:partnerLinkType>
+  <wsdl:import namespace="http://schemas.oracle.com/bpel/extension"
+               location="paymentscustomervalidationbpelprocess_client_epRuntimeFault.wsdl"/>
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://www.bank.org/payments" schemaLocation="PaymentsCustomerValidation.xsd"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="PaymentsCustomerValidationBPELProcessRequestMessage">
+    <wsdl:part name="payload" element="ns1:PaymentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="PaymentsCustomerValidationBPELProcessResponseMessage">
+    <wsdl:part name="payload" element="ns1:paymentValidationResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="PaymentsCustomerValidationBPELProcess">
+    <wsdl:operation name="process">
+      <wsdl:input message="client:PaymentsCustomerValidationBPELProcessRequestMessage"/>
+      <wsdl:output message="client:PaymentsCustomerValidationBPELProcessResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PaymentsCustomerValidationBPELProcessBinding" type="client:PaymentsCustomerValidationBPELProcess">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="process">
+      <soap:operation style="document" soapAction="process"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="paymentscustomervalidationbpelprocess_client_ep">
+    <wsdl:port name="PaymentsCustomerValidationBPELProcess_pt"
+               binding="client:PaymentsCustomerValidationBPELProcessBinding">
+      <soap:address location="http://oa8102.us.oracle.com:8001/PaymentRequestValidationAPI/1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
